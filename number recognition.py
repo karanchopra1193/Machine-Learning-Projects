@@ -25,7 +25,7 @@ for index, (image,label) in enumerate(images_and_labels[:15]):
     plt.title('%i'%label)
 '''
 import random
-from sklearn import ensemble
+from sklearn import ensemble,neighbors
 
 #define variables
 n_samples = len(digits.images)
@@ -49,6 +49,9 @@ valid_targets = [y[i] for i in valid_index]
 
 #Using random tree classifier
 classifier = ensemble.RandomForestClassifier(random_state=1)
+
+#Using Knearest neighbors
+clf = neighbors.KNeighborsClassifier()
 
 #Fit model with sample data
 classifier.fit(sample_images,sample_targets)
